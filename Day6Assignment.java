@@ -1,30 +1,39 @@
-
 import java.util.Scanner;
 
-public class Day6Assignment {
-
-	void perfect(int a) {
-		int sum=0;
-		for(int i=1; i<a; i++) {
-			if(a%i == 0) {
-				sum+=i;
-			}
-		}
-
-		if(sum==a) 
-			System.out.println(a +" This is a perfect number");
-
-		else
-			System.out.println(a +" This is not a perfect number");
-	}
-
-
-
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter a number");
-		int a = sc.nextInt();
-		Day6Assignment A = new Day6Assignment();
-		A.perfect(a);
-	}
+public class Day6Assignment
+{
+	static int fiboNum(int n) {
+    	if(n==1)
+    	{
+    		System.out.println(0+", ");
+    		return 0;
+    	}
+    	if(n==2)
+    	{
+    		System.out.println(1+", ");
+    		return 1;
+    	}
+    	System.out.print("Fibonacci series is: " + 0 +", ");
+    	System.out.print(1+", ");
+    	int n1=0, n2=1, n3=0;
+    	for(int i=0; i<n-2; i++)
+    	{
+    		n3=n2+n1;
+    		n1=n2;
+    		n2=n3;
+    		System.out.print(n3+ ", ");
+    	}
+    	return n3;
+    }
+	
+    public static void main( String[] args )
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number");
+        int n = sc.nextInt();
+        int nthTerm = fiboNum(n);
+        System.out.println(n+"th term is: "+ nthTerm);
+    }
+    
+    
 }
