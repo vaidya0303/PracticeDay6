@@ -1,27 +1,53 @@
 import java.util.Scanner;
-class RevNum{
 
-	int rev(int num) {
-		int reverse = 0;
-		int temp = num;
-		while(temp>0){
-			int remaindar = temp % 10;
-			reverse = reverse*10 + remaindar;
-			temp=temp/10;
+class StopWatch 
+{
+	public long startTimer=0;
+	public long stopTimer=0;
+	public long elapsed;
 
-		}
-		return reverse;
+	//to start timer
+	public void start()
+	{
+		startTimer=System.currentTimeMillis();
+		System.out.println("Start Time is: "+startTimer);
+	}
+
+	// to stop timer
+	public void stop()
+	{
+		stopTimer=System.currentTimeMillis();
+		System.out.println("Stop Time is: "+stopTimer);
+	}
+
+	public long getElapsedTime()
+	{
+		this.elapsed=stopTimer-startTimer;
+		return elapsed;
 	}
 }
-
 public class Day6Assignment {
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
+		StopWatch sw=new StopWatch();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter a number");
-		int num = sc.nextInt();
-		RevNum a = new RevNum();
-		int result = a.rev(num);
-		System.out.println(result);
-	}
+		System.out.println("Press '1' to Start Time: ");
+		int a = sc.nextInt();
+		//u.inputInteger();
+		if(a==1)
+		sw.start();
 
+		System.out.println();
+		System.out.println("Press '2' to Stop Time: ");
+		int b = sc.nextInt();
+		//u.inputInteger();
+		if(b==2)
+		sw.stop();
+
+		long l=sw.getElapsedTime();
+		System.out.println();
+		System.out.println("Total Time Elapsed(in millisec) is:"+l);
+		System.out.println();
+		System.out.println("Converting millisec to seconds: "+(l/1000)+" sec");
+	}
 }
