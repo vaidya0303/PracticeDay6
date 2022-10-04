@@ -1,53 +1,32 @@
-import java.util.Scanner;
-
-class StopWatch 
-{
-	public long startTimer=0;
-	public long stopTimer=0;
-	public long elapsed;
-
-	//to start timer
-	public void start()
-	{
-		startTimer=System.currentTimeMillis();
-		System.out.println("Start Time is: "+startTimer);
-	}
-
-	// to stop timer
-	public void stop()
-	{
-		stopTimer=System.currentTimeMillis();
-		System.out.println("Stop Time is: "+stopTimer);
-	}
-
-	public long getElapsedTime()
-	{
-		this.elapsed=stopTimer-startTimer;
-		return elapsed;
-	}
-}
 public class Day6Assignment {
-	public static void main(String[] args)
-	{
-		StopWatch sw=new StopWatch();
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Press '1' to Start Time: ");
-		int a = sc.nextInt();
-		//u.inputInteger();
-		if(a==1)
-		sw.start();
 
-		System.out.println();
-		System.out.println("Press '2' to Stop Time: ");
-		int b = sc.nextInt();
-		//u.inputInteger();
-		if(b==2)
-		sw.stop();
-
-		long l=sw.getElapsedTime();
-		System.out.println();
-		System.out.println("Total Time Elapsed(in millisec) is:"+l);
-		System.out.println();
-		System.out.println("Converting millisec to seconds: "+(l/1000)+" sec");
-	}
-}
+    public static void main(String[] args) {
+      // Input number
+      int n = 12;
+  
+      // Holds the count of values
+      int count = 0;
+  
+      // There is no prime number less than 2.
+      if (n <= 1) {
+        System.out.println("The number is not prime");
+        return;
+      }
+  
+      // Do a for loop
+      for (int i = 1; i <= n / 2; i++) {
+        if (n % i == 0) {
+          count++;
+        }
+      }
+  
+      // If the number of factors is greater than 1,
+      // the number is not prime.
+      if (count > 1) {
+          System.out.println("The number is not prime");
+      }
+      else {
+        System.out.println("The number is prime");
+      }
+    }
+  }
